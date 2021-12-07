@@ -7,10 +7,12 @@ const { html } = require('cheerio/lib/api/manipulation');
 
 app = express();
 
-app.get('/',(req, res)=>{
+app.get('/',function(req, res){
+    // also res.send("Climate Change News");
     res.json("Climate Change News");
+  
 })
-app.get('/news',(req, res)=>{
+app.get('/news',(req, res)=>{ //also a way to write the .get
     axios.get('https://www.theguardian.com/environment/climate-crisis')
     //since it's promised based(asynchronous programming)
     .then ((resp) => {
@@ -26,4 +28,4 @@ app.get('/news',(req, res)=>{
 })
 
 //call the router
-app.listen(PORT, (console.log(`Server running on port ${PORT}`)));
+app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`));
