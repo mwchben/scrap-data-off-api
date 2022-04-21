@@ -10,6 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/mwchben/api-scrape.git"
   },
+  "keywords": [
+    "api",
+    "scraping",
+    "JS"
+  ],
   "author": "mwchben",
   "license": "ISC",
   "bugs": {
