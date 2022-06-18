@@ -5,6 +5,7 @@ const cheerio = require('cheerio');
 
 const app = express();
 const articles = [];
+const specificArticles = [];
 const sites = [
     {
         name: "guardian",
@@ -63,8 +64,29 @@ app.get('/news/:siteId', async(req, res)=>{ //also a way to write the .get
     const siteIdParam = req.params.siteId;
 
     const siteIdAddress = sites.filter(site => site.name == siteIdParam )[0].address;
+    const siteIdBaseURL = sites.filter(site => site.name == siteIdParam )[0].baseURL;
 
     console.log(siteIdAddress);
+    axios.get(siteIdAddress)
+        .then(resp => {
+            const HTML = resp.data
+            const $ = cheerio.load(HTML);
+            
+            $("a:contains('climate')",HTML).each(function() {
+                const title = $(this).text();
+                const url = $(this).attr('href');
+
+                specificArticles.push({
+                    title,
+                    url: siteIdBaseURL + url,
+                    source: siteIdParam
+                })
+            })
+
+
+            res.json(specificArticles)
+        })
+        .catch((err) => console.log(err))
 })
 
 //call the router
