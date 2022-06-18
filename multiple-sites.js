@@ -2,23 +2,22 @@ const PORT = 8001;
 const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { html } = require('cheerio/lib/api/manipulation');
 
 const app = express();
 const articles = [];
 const sites = [
     {
-        name: "Guardian",
+        name: "guardian",
         address: "https://www.theguardian.com/environment/climate-crisis",
         baseURL: ""
     },
     {
-        name: "Daily Telegraph",
+        name: "telegraph",
         address: "https://www.dailytelegraph.com.au/topics/climate-change",
         baseURL: ""
     },
     {
-        name: "Times",
+        name: "times",
         address: "https://www.thetimes.co.uk/environment/climate-change",
         baseURL: "" //append url if link is broken eg "".../climate-change/" to "/sth sth"  
     }
@@ -39,7 +38,7 @@ sites.forEach(site => {
             //in the array articles we push an object with title and url
             articles.push({
                 title,
-                url,
+                url: site.baseURL + url,
                 source: site.name
             })
             
@@ -58,6 +57,14 @@ app.get('/',function(req, res){
 })
 app.get('/news',(req, res)=>{ //also a way to write the .get
     res.json(articles);
+})
+
+app.get('/news/:siteId', async(req, res)=>{ //also a way to write the .get
+    const siteIdParam = req.params.siteId;
+
+    const siteIdAddress = sites.filter(site => site.name == siteIdParam )[0].address;
+
+    console.log(siteIdAddress);
 })
 
 //call the router
