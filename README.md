@@ -1,7 +1,6 @@
 ## api-scrape
-
-## using nodemon to autostart the server
-An introduction with Ann Kubow
+### An introduction with Ann Kubow
+### using nodemon to autostart the server
 
 ## use:
 ### npm run start 
