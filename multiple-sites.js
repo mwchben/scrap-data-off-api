@@ -1,19 +1,31 @@
-const PORT = 8000;
+const PORT = 8001;
 const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { html } = require('cheerio/lib/api/manipulation');
 
-const articles = [];
 const app = express();
+const articles = [];
+const sites = [
+    {
+        name: "Guardian",
+        address: "https://www.theguardian.com/environment/climate-crisis",
+        baseURL: ""
+    },
+    {
+        name: "Daily Telegraph",
+        address: "https://www.dailytelegraph.com.au/topics/climate-change",
+        baseURL: ""
+    },
+    {
+        name: "Times",
+        address: "https://www.thetimes.co.uk/environment/climate-change",
+        baseURL: "" //append url if link is broken eg "".../climate-change/" to "/sth sth"  
+    }
+];
 
-app.get('/',function(req, res){
-    // also res.send("Climate Change News");
-    res.json("Climate Change News");
-  
-})
-app.get('/news',(req, res)=>{ //also a way to write the .get
-    axios.get('https://www.theguardian.com/environment/climate-crisis')
+sites.forEach(site => {
+    axios.get(site.address)
     //since it's promised based(asynchronous programming)
     .then ((resp) => {
         const HTML = resp.data;
@@ -27,11 +39,25 @@ app.get('/news',(req, res)=>{ //also a way to write the .get
             //in the array articles we push an object with title and url
             articles.push({
                 title,
-                url
+                url,
+                source: site.name
             })
-            res.json(articles);
+            
         })
-    }).catch((err)=>(console.error(err)))
+    })
+    .catch((err)=> {
+        (console.error(err))
+    })
+})
+
+
+app.get('/',function(req, res){
+    // also res.send("Climate Change News");
+    res.json("Climate Change News");
+  
+})
+app.get('/news',(req, res)=>{ //also a way to write the .get
+    res.json(articles);
 })
 
 //call the router
