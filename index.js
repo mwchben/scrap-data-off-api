@@ -4,8 +4,9 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { html } = require('cheerio/lib/api/manipulation');
 
-const articles = [];
 const app = express();
+const articles = [];
+
 
 app.get('/',function(req, res){
     // also res.send("Climate Change News");
