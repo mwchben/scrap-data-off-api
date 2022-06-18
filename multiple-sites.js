@@ -13,8 +13,13 @@ const sites = [
         baseURL: ""
     },
     {
-        name: "telegraph",
-        address: "https://www.dailytelegraph.com.au/topics/climate-change",
+        name: "un",
+        address: "https://www.un.org/en/global-issues/climate-change",
+        baseURL: ""
+    },
+    {
+        name: "who",
+        address: "https://www.who.int/health-topics/climate-change",
         baseURL: ""
     },
     {
