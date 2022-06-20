@@ -1,18 +1,22 @@
-## api-scrape
+## Scrap site data
 
-#### An introduction with Ann Kubow
+## Use
 
-### using nodemon to autostart the server
+#### 1. install
 
-## use:
+fork/download->zip and run `npm i`
 
-### npm run start
+#### 2. for getting JSON data from various one weather site
 
-for getting JSON data from various one weather site
+`npm run start`
 
-### npm run start2
+#### 3. for getting JSON data from various weather sites
 
-for getting JSON data from various weather sites
+`npm run start2`
+
+#### note:
+
+Replace sites array objects with your website
 
 The following packages are used:
 
