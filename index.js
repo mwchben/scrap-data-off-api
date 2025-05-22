@@ -36,4 +36,4 @@ app.get('/news',(req, res)=>{ //also a way to write the .get
 })
 
 //call the router
-app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`));
+app.listen(PORT, ()=>console.log(`Server running on port ${PORT}, access with "http://localhost:${PORT}/"`));

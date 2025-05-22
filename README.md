@@ -4,7 +4,8 @@
 
 #### 1. install
 
-fork/download->zip and run `npm i`
+- Git clone the repo and run `npm i`
+- Run `npm install -g nodemon`
 
 #### 2. for getting JSON data from various one weather site
 
