@@ -7,13 +7,25 @@
 - Git clone the repo and run `npm i`
 - Run `npm install -g nodemon`
 
-#### 2. for getting JSON data from various one weather site
+#### 2. for getting JSON data from various one site
 
 `npm run start`
 
-#### 3. for getting JSON data from various weather sites
+GET Requests available
+
+- run "http://localhost:${PORT}/" where PORT is defined line 1 of Code
+- run "http://localhost:${PORT}/news" to get tech news
+
+#### 3. for getting JSON data from various sites
 
 `npm run start2`
+
+GET Requests available
+
+- run "http://localhost:${PORT}/" where PORT is defined line 1 of Code
+- run "http://localhost:${PORT}/news" to get tech news from all sites
+- run "http://localhost:${PORT}/news/:siteId" to get tech news from a specific site
+
 
 #### note:
 
