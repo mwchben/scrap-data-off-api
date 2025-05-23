@@ -10,11 +10,11 @@ const articles = [];
 
 app.get('/',function(req, res){
     // also res.send("Climate Change News");
-    res.json("Climate Change News");
+    res.json("You have hit the homepage URL");
   
 })
 app.get('/news',(req, res)=>{ //also a way to write the .get
-    axios.get('https://www.theguardian.com/environment/climate-crisis')
+    axios.get('https://www.bbc.com/news/science-environment-24021772')
     //since it's promised based(asynchronous programming)
     .then ((resp) => {
         const HTML = resp.data;

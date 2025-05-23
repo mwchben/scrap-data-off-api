@@ -22,7 +22,9 @@ Replace sites array objects with your website
 The following packages are used:
 
 1. [Axios](https://www.npmjs.com/package/axios)
-1. [Express](https://www.npmjs.com/package/express)
-1. [Cheerio](https://www.npmjs.com/package/cheerio)
+2. [Express](https://www.npmjs.com/package/express)
+3. [Cheerio](https://www.npmjs.com/package/cheerio)
 
-#### RE: Ann Kubow
+4. [Nodemon](https://www.npmjs.com/package/nodemon)
+
+#### Reference: Ann Kubow

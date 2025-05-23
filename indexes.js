@@ -57,7 +57,6 @@ sites.forEach(site => {
 
 
 app.get('/',function(req, res){
-    // also res.send("Climate Change News");
     res.json("Climate Change News");
   
 })
@@ -94,5 +93,5 @@ app.get('/news/:siteId', async(req, res)=>{ //also a way to write the .get
         .catch((err) => console.log(err))
 })
 
-//call the router
-app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT, ()=>console.log(`Server running on port ${PORT}, access with "http://localhost:${PORT}/"`));
