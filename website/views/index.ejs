@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/main.css">
-  <title>Basic E-commerce Site</title>
-</head>
-<body>
-  <h1>Product Listings</h1>
-  <ul>
-    <% products.forEach(product => { %>
-      <li>
-        <%= product.name %> - $<%= product.price %>
-        <form method="post" action="/add-to-cart/<%= product.id %>">
-          <button type="submit">Add to Cart</button>
-        </form>
-      </li>
-    <% }); %>
-  </ul>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title><%= title%></title>
+  </head>
+
+  <body>
+    <h1>The GUI to the scrap off data API</h1>
+    <p>
+      Follow the Github a/c for further diggin' to the site, 
+      adios!!
+    </p>
+  </body>
 </html>
