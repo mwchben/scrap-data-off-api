@@ -4,8 +4,9 @@
   "description": "Scrape data off websites",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
-    "start2": "nodemon server/indexes.js",
+    "start": "nodemon server/main.js",
+    "start1": "nodemon server/index.js",
+    "start2": "nodemon server/index2.js",
     "start3": "nodemon app.js"
   },
   "repository": {
