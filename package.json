@@ -4,9 +4,10 @@
   "description": "Scrape data off websites",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "start2": "nodemon indexes.js",
-    "start3": "nodemon website/index.js"
+    "start": "nodemon server/main.js",
+    "start1": "nodemon server/index.js",
+    "start2": "nodemon server/index2.js",
+    "start3": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,8 @@
   "keywords": [
     "api",
     "scraping",
+    "ejs",
+    "cheerio",
     "JS"
   ],
   "author": "mwchben",
