@@ -6,24 +6,31 @@ const fs = require("fs"); // Add this at the top
 
 const app = express();
 var articles = [];
+const site =  {
+    name: "BBC",
+    address: "https://www.bbc.com/innovation/artificial-intelligence",
+    baseURL: "https://www.bbc.com",
+    baseURL_HTTPS: "https://www.bbc.com/innovation/artificial-intelligence"
+  }
 
 // News scraping route
 app.get("/", (req, res) => {
   axios
-    .get("https://www.bbc.com")
+    .get(site.address)
     .then((resp) => {
       const HTML = resp.data;
       const $ = cheerio.load(HTML);
       articles.length = 0; //clear old articles
 
-      $('a:contains("tech")', HTML).each(function () {
+      $('a:contains("AI")', HTML).each(function () {
         const title = $(this).text(); // $(this) means  $('a:contains("tech")',html)
         const url = $(this).attr("href");
 
         //in the array articles we push an object with title and url
         articles.push({
           title,
-          url,
+          url: site.baseURL + url,
+          source: site.name,
         });
       });
 
