@@ -10,7 +10,6 @@ const site =  {
     name: "BBC",
     address: "https://www.bbc.com/innovation/artificial-intelligence",
     baseURL: "https://www.bbc.com",
-    baseURL_HTTPS: "https://www.bbc.com/innovation/artificial-intelligence"
   }
 
 // News scraping route
