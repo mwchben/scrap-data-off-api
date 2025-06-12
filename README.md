@@ -11,20 +11,20 @@
 
 `npm run start`
 
-GET Requests available
+GET Requests available available with base URL http://localhost/
 
-- run "http://localhost:${PORT}/" where PORT is defined line 1 of Code
-- run "http://localhost:${PORT}/news" to get tech news
+- run `:PORT` where PORT is defined on line 1 of Code
+- run `:PORT/news` to get tech news
 
 #### 3. for getting JSON data from various sites
 
 `npm run start2`
 
-GET Requests available
+GET Requests available with base URL http://localhost/
 
-- run "http://localhost:${PORT}/" where PORT is defined line 1 of Code
-- run "http://localhost:${PORT}/news" to get tech news from all sites
-- run "http://localhost:${PORT}/news/:siteId" to get tech news from a specific site
+- run `:PORT` where PORT is defined on line 1 of Code
+- run `:PORT/news` to get tech news from all sites
+- run `:PORT/news/:siteId` to get tech news from a specific site
 
 
 #### note:
