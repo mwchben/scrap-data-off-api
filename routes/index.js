@@ -11,11 +11,13 @@ router.get('/', (req, res) => {
 router.post('/submit', (req, res) => {
   website = req.body
   const userReq = {
-    website
+    website : this.name
   }
+  let seeInBrowser = JSON.stringify(website.website)
+  res.render('toServer.ejs', {seeInBrowser})
   fs.writeFile(
           "./data/userReq.json",
-          JSON.stringify(userReq),
+          seeInBrowser,
           (err) => {
             if (err) {
               console.error("Error writing file", err);
@@ -24,7 +26,6 @@ router.post('/submit', (req, res) => {
             }
           }
         );
-  res.render('toServer.ejs', {website})
   return website
 })
 
