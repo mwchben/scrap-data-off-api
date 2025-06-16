@@ -2,15 +2,33 @@ const PORT = 8000;
 const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
-const fs = require("fs"); // Add this at the top
+const fs = require("fs");
+const dataLocation = "../data/userReq.json"
+
+function readUserReq(params) {
+  fs.readFile(dataLocation, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading file:", err);
+      return;
+    }
+    try {
+        const jsonData = JSON.parse(data);
+        console.log(jsonData);
+      } catch (parseError) {
+        console.error("Error parsing JSON:", parseError);
+      }
+  });
+}
+
+readUserReq()
 
 const app = express();
 var articles = [];
-const site =  {
-    name: "BBC",
-    address: "https://www.bbc.com/innovation/artificial-intelligence",
-    baseURL: "https://www.bbc.com",
-  }
+const site = {
+  name: "BBC",
+  address: "https://www.bbc.com/innovation/artificial-intelligence",
+  baseURL: "https://www.bbc.com",
+};
 
 // News scraping route
 app.get("/", (req, res) => {
