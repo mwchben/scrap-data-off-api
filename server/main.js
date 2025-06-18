@@ -3,9 +3,11 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
-const dataLocation = "../data/userReq.json"
+const path = require('path');
 
-function readUserReq(params) {
+const dataLocation = path.join('data', 'userReq.json');
+
+function readUserReq() {
   fs.readFile(dataLocation, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading file:", err);
@@ -22,10 +24,12 @@ function readUserReq(params) {
 
 readUserReq()
 
+
+
 const app = express();
 var articles = [];
 const site = {
-  name: "BBC",
+  name: "bbc",
   address: "https://www.bbc.com/innovation/artificial-intelligence",
   baseURL: "https://www.bbc.com",
 };
