@@ -1,5 +1,6 @@
 const express = require('express');
 const  router = express.Router();
+const fs = require('fs')
 
 let website;
 
@@ -9,7 +10,22 @@ router.get('/', (req, res) => {
 });
 router.post('/submit', (req, res) => {
   website = req.body
-  res.render('toServer.ejs', {website})
+  const userReq = {
+    website : this.name
+  }
+  let seeInBrowser = JSON.stringify(website.website)
+  res.render('toServer.ejs', {seeInBrowser})
+  fs.writeFile(
+          "./data/userReq.json",
+          seeInBrowser,
+          (err) => {
+            if (err) {
+              console.error("Error writing file", err);
+            } else {
+              console.log("User Req saved to userReq.json");
+            }
+          }
+        );
   return website
 })
 
