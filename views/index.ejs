@@ -3,22 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./../public/styles/index.css" />
+    <link rel="stylesheet" href="/styles/index.css" type="text/css" />
     <title><%= title%></title>
   </head>
 
   <body>
-    <h1>The GUI to the scrap off data API</h1>
-    <p>
-      Follow the Github a/c for further diggin' to the site, 
-      adios!!
-    </p>
-    <form action="submit" method="post">
-      <label for="website">Website to scrape: </label>
-      <input type="text" name="website" id="website" required>
-
-      <button type="submit">Get Scraped data</button>
     
-    </form>
+    <div class="login">
+      <h2>Need Some Magic? Let's do this</h2>
+      <h3>Let's do this</h3>
+    
+      <form method="post" action="submit">
+        <label for="name">Keyword: </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="(e.g., AI)"
+          required="required"
+        />
+        <label for="address">Website to scrape: </label>
+        <input
+          type="url"
+          name="address"
+          id="address"
+          placeholder="(e.g., https://www.bbc.com/innovation/artificial-intelligence)"
+          required="required"
+        />
+        <label for="baseURL">Optional Base URL: </label>
+        <input
+          type="url"
+          name="baseURL"
+          id="baseURL"
+          placeholder="(e.g., https://www.bbc.com)"
+        />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Scrape that!
+        </button>
+      </form>
+    </div>
+    
   </body>
 </html>

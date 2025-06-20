@@ -13,6 +13,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
+
 app.use('/', indexRouter);
 
 app.listen(PORT, () => {

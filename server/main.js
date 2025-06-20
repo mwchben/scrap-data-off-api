@@ -3,31 +3,22 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
-const dataLocation = "../data/userReq.json"
+const path = require('path');
 
-function readUserReq(params) {
-  fs.readFile(dataLocation, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err);
-      return;
-    }
-    try {
-        const jsonData = JSON.parse(data);
-        console.log(jsonData);
-      } catch (parseError) {
-        console.error("Error parsing JSON:", parseError);
-      }
-  });
-}
+const dataLocation = path.join('data', 'userReq.json');
 
-readUserReq()
+const readUserReq = () => fs.readFileSync(dataLocation, {encoding: "utf-8"})
+const getUserReq = JSON.parse(readUserReq())
+
+console.log("Data available to use for scraping here in json:",getUserReq);
+
 
 const app = express();
 var articles = [];
 const site = {
-  name: "BBC",
-  address: "https://www.bbc.com/innovation/artificial-intelligence",
-  baseURL: "https://www.bbc.com",
+  name: getUserReq.name,
+  address: getUserReq.address,
+  baseURL: getUserReq.baseURL,
 };
 
 // News scraping route
@@ -39,7 +30,7 @@ app.get("/", (req, res) => {
       const $ = cheerio.load(HTML);
       articles.length = 0; //clear old articles
 
-      $('a:contains("AI")', HTML).each(function () {
+      $('a:contains(${site.name})', HTML).each(function () {
         const title = $(this).text(); // $(this) means  $('a:contains("tech")',html)
         const url = $(this).attr("href");
 

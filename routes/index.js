@@ -9,11 +9,8 @@ router.get('/', (req, res) => {
   res.render('index', { title: "Scrap" });
 });
 router.post('/submit', (req, res) => {
-  website = req.body
-  const userReq = {
-    website : this.name
-  }
-  let seeInBrowser = JSON.stringify(website.website)
+  const requestData = req.body; 
+  let seeInBrowser = JSON.stringify(requestData)
   res.render('toServer.ejs', {seeInBrowser})
   fs.writeFile(
           "./data/userReq.json",
