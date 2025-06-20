@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
       const $ = cheerio.load(HTML);
       articles.length = 0; //clear old articles
 
-      $('a:contains("AI")', HTML).each(function () {
+      $('a:contains(${site.name})', HTML).each(function () {
         const title = $(this).text(); // $(this) means  $('a:contains("tech")',html)
         const url = $(this).attr("href");
 
