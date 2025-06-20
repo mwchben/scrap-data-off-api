@@ -10,16 +10,15 @@ const dataLocation = path.join('data', 'userReq.json');
 const readUserReq = () => fs.readFileSync(dataLocation, {encoding: "utf-8"})
 const getUserReq = JSON.parse(readUserReq())
 
-console.log(getUserReq);
-
+console.log("Data available to use for scraping here in json:",getUserReq);
 
 
 const app = express();
 var articles = [];
 const site = {
-  name: "bbc",
-  address: "https://www.bbc.com/innovation/artificial-intelligence",
-  baseURL: "https://www.bbc.com",
+  name: getUserReq.name,
+  address: getUserReq.address,
+  baseURL: getUserReq.baseURL,
 };
 
 // News scraping route
