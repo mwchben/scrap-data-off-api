@@ -7,22 +7,10 @@ const path = require('path');
 
 const dataLocation = path.join('data', 'userReq.json');
 
-function readUserReq() {
-  fs.readFile(dataLocation, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err);
-      return;
-    }
-    try {
-        const jsonData = JSON.parse(data);
-        console.log(jsonData);
-      } catch (parseError) {
-        console.error("Error parsing JSON:", parseError);
-      }
-  });
-}
+const readUserReq = () => fs.readFileSync(dataLocation, {encoding: "utf-8"})
+const getUserReq = JSON.parse(readUserReq())
 
-readUserReq()
+console.log(getUserReq);
 
 
 
