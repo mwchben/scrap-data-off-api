@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/index.css" type="text/css"/>
   <title>Your Website?</title>
 </head>
 
@@ -14,16 +14,13 @@
     <p>
       Dear user, your inputs are as follows:
     </p>
-    <p>
     <ul>
-      <% geeks.forEach(geek=> { %>
-        <li>ID: <%= geek.id %>, Name: <%= geek.name %>, Language: <%= geek.language %>
-        </li>
-        <% }) %>
+      <li><b>Keyword:</b> <%= seeInBrowser.keyword %></li>
+      <li><b>URL:</b> <%= seeInBrowser.address %></li>
+      <li><b>BaseURL:</b> <%= seeInBrowser.baseURL %></li>
     </ul>
-    The website provided is: <b>
-      <%= seeInBrowser%>
-    </b>, you are getting redirected in 5s...
+    <p>
+    <b>You will get redirected in 10s...</b>
     </p>
   </div>
 </body>
