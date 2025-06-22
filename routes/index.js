@@ -1,8 +1,6 @@
 const express = require('express');
-const  router = express.Router();
+const router = express.Router();
 const fs = require('fs')
-
-let website;
 
 
 router.get('/', (req, res) => {
@@ -11,7 +9,11 @@ router.get('/', (req, res) => {
 router.post('/submit', (req, res) => {
   const requestData = req.body; 
   let seeInBrowser = JSON.stringify(requestData)
-  res.render('toServer.ejs', {seeInBrowser})
+  res.render('toServer.ejs', {seeInBrowser: {
+    keyword: requestData.name,
+    address: requestData.address,
+    baseURL: requestData.baseURL
+  }})
   fs.writeFile(
           "./data/userReq.json",
           seeInBrowser,
@@ -23,7 +25,6 @@ router.post('/submit', (req, res) => {
             }
           }
         );
-  return website
 })
 
 
