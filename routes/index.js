@@ -2,9 +2,14 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs')
 
+//get json data from ./data/articles in /get route
+const articles = require('../data/articles.json');
 
 router.get('/', (req, res) => {
-  res.render('index', { title: "Scrap" });
+  res.render('index');
+});
+router.get('/data', (req, res) => {
+  res.render('data', { articles });
 });
 router.post('/submit', (req, res) => {
   const requestData = req.body; 
