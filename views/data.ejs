@@ -4,17 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./../public/styles/index.css" />
-    <title>Scraped data</title>
+    <title>Your APIs</title>
   </head>
 
   <body>
-    <h1>The GUI to the scrap off data API</h1>
+    <h3>From the provided data, your APIs are</h3>
+    <h4>If your URL is broken, provide a base URL</h4>
     <p>
-      Follow the Github a/c for further diggin' to the site, 
-      adios!!
-    </p>
-    <p>
-        
+      <div class="">
+            
+            <% articles.forEach((article)=>{ %>
+                <ul>
+                    <li><b>Course name:</b>
+                        <%= article.title %>
+                    </li>
+                    <li><b>Course Category:</b>
+                        <%= article.url %>
+                    </li>
+                    <li><b>Topics:</b>
+                        <%= article.source %>
+                    </li>
+                </ul>
+            <% }) %>
+        </div>       
     </p>
   </body>
 </html>
