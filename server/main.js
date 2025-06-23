@@ -6,6 +6,7 @@ const fs = require("fs");
 const path = require('path');
 
 const dataLocation = path.join('data', 'userReq.json');
+// const dataLocationTwo = path.join('data', 'articles.json');
 
 const readUserReq = () => fs.readFileSync(dataLocation, {encoding: "utf-8"})
 const getUserReq = JSON.parse(readUserReq())
@@ -21,19 +22,22 @@ const site = {
   baseURL: getUserReq.baseURL,
 };
 
+console.log("See this:.......",site.name);
 // News scraping route
 app.get("/", (req, res) => {
   axios
     .get(site.address)
-    .then((resp) => {
+       .then((resp) => {
+        
       const HTML = resp.data;
       const $ = cheerio.load(HTML);
       articles.length = 0; //clear old articles
+          
 
-      $('a:contains(${site.name})', HTML).each(function () {
+      $(`a:contains(${site.name})`, HTML).each(function () {
         const title = $(this).text(); // $(this) means  $('a:contains("tech")',html)
         const url = $(this).attr("href");
-
+console.log("Scraping started");
         //in the array articles we push an object with title and url
         articles.push({
           title,
@@ -41,6 +45,7 @@ app.get("/", (req, res) => {
           source: site.name,
         });
       });
+console.log(articles);
 
       // Save articles to a file after modification
       fs.writeFile(
@@ -50,7 +55,7 @@ app.get("/", (req, res) => {
           if (err) {
             console.error("Error writing file", err);
           } else {
-            console.log("Articles saved to articles.json");
+            console.log("Scraped data saved to articles.json");
           }
         }
       );
