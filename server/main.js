@@ -3,20 +3,19 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
-const path = require('path');
+const path = require("path");
 
-const dataLocation = path.join('data', 'userReq.json');
+const dataLocation = path.join("data", "userReq.json");
 // const dataLocationTwo = path.join('data', 'articles.json');
 
-const readUserReq = () => fs.readFileSync(dataLocation, { encoding: "utf-8" })
-const getUserReq = JSON.parse(readUserReq())
+const readUserReq = () => fs.readFileSync(dataLocation, { encoding: "utf-8" });
+const getUserReq = JSON.parse(readUserReq());
 
 console.log("Data available to use for scraping here in json:", getUserReq);
 
-
 const app = express();
-app.set('views','views')
-app.set('view engine', 'ejs')
+app.set("views", "views");
+app.set("view engine", "ejs");
 //above code for views added to serve errors.ejs
 
 var articles = [];
@@ -32,11 +31,9 @@ app.get("/", (req, res) => {
   axios
     .get(site.address)
     .then((resp) => {
-
       const HTML = resp.data;
       const $ = cheerio.load(HTML);
       articles.length = 0; //clear old articles
-
 
       $(`a:contains(${site.name})`, HTML).each(function () {
         const title = $(this).text(); // $(this) means  $('a:contains("tech")',html)
@@ -67,13 +64,19 @@ app.get("/", (req, res) => {
       res.json(articles);
     })
     // .catch((err) => console.error(err));
-    .catch((err)=> {
-      if (err.response.status===404) {
-       res.status(404).render("errors", { message: "Page not found (404)" });
-       return;
+    .catch((err) => {
+      if (err.response.status === 404) {
+        res
+          .status(404)
+          .render("errors", {
+            message: `Page not found (404) or Invalid link, i.e., ${site.address}`,
+          });
+        return;
       } else {
-        console.error(err)
-        res.status(500).render('errors', { message: "An unexpected error occurred." });
+        console.error(err);
+        res
+          .status(500)
+          .render("errors", { message: "An unexpected error occurred." });
       }
     });
 });
