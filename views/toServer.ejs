@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./../public/styles/index.css" />
-    <title>Your Website?</title>
-  </head>
 
-  <body>
-    <h1>The GUI to the scrap off data API</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/index.css" type="text/css"/>
+  <title>Your Website?</title>
+</head>
+
+<body>
+  <div class="resultBox">
+    <h2>Confirmation Page</h2>
     <p>
-      Follow the Github a/c for further diggin' to the site, 
-      adios!!
+      Dear user, your inputs are as follows:
     </p>
+    <ul>
+      <li><b>Keyword:</b> <%= seeInBrowser.keyword %></li>
+      <li><b>URL:</b> <%= seeInBrowser.address %></li>
+      <li><b>BaseURL:</b> <%= seeInBrowser.baseURL %></li>
+    </ul>
     <p>
-      The website provided is: <b><%= seeInBrowser%></b>, you are getting redirected in 5s...
+    <button> <a href="http://localhost:8000/">Confirm</a> </button>
     </p>
-   
-  </body>
+  </div>
+</body>
+
 </html>

@@ -51,13 +51,13 @@
 }
 .btn-primary.active {
   color: rgba(255, 255, 255, 0.75);
-}   
+}
 .btn-primary {
   color: #919191;
   background-color: #565656;
   background-repeat: repeat-x;
   filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#565656, GradientType=0);
-  border: 1px solid #727272 ;
+  border: 1px solid #727272;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 1px 2px rgba(0, 0, 0, 0.5);
@@ -94,7 +94,7 @@ body {
 }
 .login {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   margin: -150px 0 0 -150px;
   width: 300px;
@@ -132,4 +132,29 @@ input {
 input:focus {
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4),
     0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.resultBox {
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  margin: -150px 0 0 -150px;
+  width: 300px;
+  height: 300px;
+}
+.resultBox h2 {
+  color: #919191;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+ul,
+ol {
+  margin: 0 0 1.5em 2.5em;
+  list-style: none;
+}
+li {
+  margin: 0 0 0.5em 0;
+  position: relative;
 }
