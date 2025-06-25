@@ -1,42 +1,39 @@
-## Scrap site data
+# Scrap site data
 
-## Use
+## How to go about
 
-#### 1. install
+### 1. install
 
 - Git clone the repo and run `npm i`
 - Run `npm install -g nodemon`
 
-#### 2. for getting JSON data from various one site
+### 2. for running frontend
 
-`npm run start`
+`npm run start-f`
 
-GET Requests available available with base URL http://localhost/
+- Go to the base URL http://localhost/ with `:PORT` where PORT is defined on line 1 of code
+- You will get:
+    - keyword (main wording of what to look for in the `<a>` tags)
+    - website (main URL of the site with pages/articles)
+    - baseURL (main URL of the site)
 
-- run `:PORT` where PORT is defined on line 1 of Code
-- run `:PORT/news` to get tech news
+### 3. for running backend
 
-#### 3. for getting JSON data from various sites
+`npm run start-b`
 
-`npm run start2`
-
-GET Requests available with base URL http://localhost/
-
-- run `:PORT` where PORT is defined on line 1 of Code
-- run `:PORT/news` to get tech news from all sites
-- run `:PORT/news/:siteId` to get tech news from a specific site
+Go to the base URL http://localhost/ with `:PORT` where PORT is defined on line 1 of Code
 
 
 #### note:
 
-Replace sites array objects with your website
-
+Run the two servers concurrently
 The following packages are used:
 
 1. [Axios](https://www.npmjs.com/package/axios)
 2. [Express](https://www.npmjs.com/package/express)
 3. [Cheerio](https://www.npmjs.com/package/cheerio)
-
 4. [Nodemon](https://www.npmjs.com/package/nodemon)
+4. [EJS](https://ejs.co/)
 
-#### Reference: Ann Kubow
+
+#### Credits: Ann Kubow
