@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+    <title>Your Website?</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles/index.css" type="text/css"/>
-  <title>Your Website?</title>
-</head>
+  <body>
+    <div class="main">
+      <h2>Confirm your data and proceed</h2>
+      <p>Dear champ, is this accurate?</p>
+      <table style="width: 100%">
+        <tr>
+          <td>Keyword</td>
+          <td><b> <%= seeInBrowser.keyword %> </b></td>
+        </tr>
+        <tr>
+          <td>URL</td>
+          <td><b> <%= seeInBrowser.address %> </b></td>
+        </tr>
+        <tr>
+          <td>BaseURL</td>
+          <td><b> <%= seeInBrowser.baseURL || 'Not Provided'%> </b></td>
+        </tr>
+      </table>
 
-<body>
-  <div class="resultBox">
-    <h2>Confirmation Page</h2>
-    <p>
-      Dear user, your inputs are as follows:
-    </p>
-    <ul>
-      <li><b>Keyword:</b> <%= seeInBrowser.keyword %></li>
-      <li><b>URL:</b> <%= seeInBrowser.address %></li>
-      <li><b>BaseURL:</b> <%= seeInBrowser.baseURL %></li>
-    </ul>
-    <p>
-    <button> <a href="http://localhost:8000/">Confirm</a> </button>
-    </p>
-  </div>
-</body>
+      <p>
+        <a href="http://localhost:8000/">Confirm this</a><br />
+        <a onclick="goBack()">Edit this</a>
+      </p>
+    </div>
 
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
 </html>
