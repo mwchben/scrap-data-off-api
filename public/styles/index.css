@@ -187,13 +187,13 @@ td b {
 }
 
 a {
-  color: #e6e6e6;
+  color: #eb9292;
   text-decoration: none;
   cursor: pointer;
 }
 
 p a {
-  color: #ead7d7;
+  color: #eb9292;
 }
 
 a:hover {
