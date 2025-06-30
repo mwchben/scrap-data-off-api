@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 .btn {
   display: inline-block;
   display: inline;
@@ -24,6 +25,7 @@
   cursor: pointer;
   margin-left: 0.3em;
 }
+
 .btn:hover,
 .btn:active,
 .btn.active,
@@ -31,12 +33,14 @@
 .btn[disabled] {
   background-color: #e6e6e6;
 }
+
 .btn-large {
   padding: 9px 14px;
   font-size: 15px;
   line-height: normal;
   border-radius: 5px;
 }
+
 .btn:hover {
   color: #333333;
   text-decoration: none;
@@ -44,14 +48,17 @@
   background-position: 0 -15px;
   transition: background-position 0.1s linear;
 }
+
 .btn-primary,
 .btn-primary:hover {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   color: #565656;
 }
+
 .btn-primary.active {
   color: rgba(255, 255, 255, 0.75);
 }
+
 .btn-primary {
   color: #919191;
   background-color: #565656;
@@ -62,6 +69,7 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 1px 2px rgba(0, 0, 0, 0.5);
 }
+
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.active,
@@ -70,6 +78,7 @@
   filter: none;
   background-color: #919191;
 }
+
 .btn-block {
   width: 100%;
   display: block;
@@ -87,30 +96,42 @@ html {
 
 body {
   width: 100%;
-  color: #919191;
+  color: #cecece;
   height: 100%;
   font-family: "Open Sans", sans-serif;
   background: #373737;
+    text-align: center;
 }
+
+.main {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  margin: -10px 0 0 -10px;
+  width: auto;
+  height: auto;
+  text-align: left;
+}
+
 .login {
   position: absolute;
-  top: 45%;
+  top: 55%;
   left: 50%;
   margin: -150px 0 0 -150px;
   width: 300px;
   height: 300px;
 }
+
 .login h2 {
   color: #919191;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
-  text-align: center;
 }
+
 .login h3 {
   color: #919191;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
-  text-align: center;
 }
 
 input {
@@ -129,6 +150,7 @@ input {
     0 1px 1px rgba(255, 255, 255, 0.2);
   transition: box-shadow 0.5s ease;
 }
+
 input:focus {
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4),
     0 1px 1px rgba(255, 255, 255, 0.2);
@@ -142,6 +164,7 @@ input:focus {
   width: 300px;
   height: 300px;
 }
+
 .resultBox h2 {
   color: #919191;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -151,10 +174,28 @@ input:focus {
 
 ul,
 ol {
-  margin: 0 0 1.5em 2.5em;
+  margin: 0 0 1.5em -2.5em;
   list-style: none;
 }
+
 li {
-  margin: 0 0 0.5em 0;
   position: relative;
+}
+
+td b {
+  color: #e6e6e6;
+}
+
+a {
+  color: #e6e6e6;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p a {
+  color: #ead7d7;
+}
+
+a:hover {
+  color: #e4bcbc;
 }
