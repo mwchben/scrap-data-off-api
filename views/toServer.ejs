@@ -26,13 +26,22 @@
         </tr>
       </table>
 
-      <p>
-        <a href="http://localhost:8000/">Confirm this</a><br />
-        <a onclick="goBack()">Edit this</a>
-       <br />
-       <hr><h3>NB:</h3>
-       After confirming, you can <a href="http://localhost:3001/download" download>download</a> your json file.
-      </p>
+      <div style="margin-top: 1em;">
+          <button class="btn btn-primary" id="push-right">
+            <a href="http://localhost:8000/">Confirm this</a>
+          </button>
+          <button class="btn btn-primary">
+            <a onclick="goBack()">Edit this</a>
+          </button>
+        <br />
+        <hr />
+        <h3>NB:</h3>
+        After confirming, you can
+        <button class="btn btn-primary">
+          <a href="http://localhost:3001/download" download>download</a>
+        </button>
+        your json file.
+      </div>
     </div>
 
     <script>
